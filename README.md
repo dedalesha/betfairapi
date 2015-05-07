@@ -14,6 +14,7 @@ The plan so far is to:
 - [ ] F4: Introduce Java entities
 - [ ] F5: Introduce dependency injection: Spring or Guice
 - [X] F6: Autogenerate enumerations
-- [ ] F7: Autogenerate data types 
+- [X] F7: Autogenerate data types 
 - [ ] F8: Autogenerate interfaces
 - [ ] F9: Proxy the interfaces with Rest call implementation
+- [ ] R1: Improve handling of java type conversion in XSL templates (convert only once)

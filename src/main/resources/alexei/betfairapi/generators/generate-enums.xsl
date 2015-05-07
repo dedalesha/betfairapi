@@ -8,10 +8,6 @@
   <xsl:apply-templates select="@*|node()"/>
 </xsl:template>
 
-<xsl:template match="title">
-	<xsl:apply-templates/>
-</xsl:template>
-
 <xsl:template match="value" mode="enum">
 		/**
 		  * <xsl:value-of select="normalize-space(description/text())"/>
@@ -24,6 +20,9 @@
   <xsl:result-document href="{$outputFolder}/{@name}.java" method="text">
    	package <xsl:value-of select="$packageName" />;
    	
+   	/**
+   	 * This class was auto-generated from interface definition xml.
+   	 */   	 
    	public enum <xsl:value-of select="@name"/> {
    	
    		<xsl:apply-templates select="validValues/value" mode="enum" />
