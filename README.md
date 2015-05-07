@@ -12,4 +12,8 @@ The plan so far is to:
 - [ ] F2: Can list markets
 - [ ] F3: Choose and integrate a logging API: log4j 2 or logback
 - [ ] F4: Introduce Java entities
-- [ ] F5: Introduce dependency injection: Spring or Guice 
+- [ ] F5: Introduce dependency injection: Spring or Guice
+- [X] F6: Autogenerate enumerations
+- [ ] F7: Autogenerate data types 
+- [ ] F8: Autogenerate interfaces
+- [ ] F9: Proxy the interfaces with Rest call implementation

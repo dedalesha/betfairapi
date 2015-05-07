@@ -1,5 +1,7 @@
 package alexei.betfairapi;
 
+import java.util.logging.Logger;
+
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
@@ -7,6 +9,8 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.filter.LoggingFilter;
 
+import alexei.betfairapi.entities.LoginResult;
+import alexei.betfairapi.entities.LoginStatus;
 import static javax.ws.rs.client.ClientBuilder.*;
 
 public class Login {
@@ -20,16 +24,22 @@ public class Login {
 		form.param("password", password);
 
 		Response response = newClient()
-			.register(new LoggingFilter()) //TODO: add logging filter only if debug is enabled
+			.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true)) //TODO: add logging filter only if debug is enabled
 			.target("https://identitysso.betfair.com/api/login")
 			.request(MediaType.APPLICATION_JSON)
 			.header("X-Application", appKey)
 			.header("Content-Type", MediaType.APPLICATION_FORM_URLENCODED)
 			.post(Entity.form(form));
 		
-		System.out.println(response.readEntity(String.class)); //TODO: add login response entity
+		LoginResult loginResult = response.readEntity(LoginResult.class);
+
 		
-		return null;
+		if (loginResult.getStatus() == LoginStatus.SUCCESS) {
+			return loginResult.getToken();
+		} else {
+			throw new RuntimeException("Could not log in: "+loginResult.getError());
+		}
+
 	}
 	
 }
