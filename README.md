@@ -17,4 +17,4 @@ The plan so far is to:
 - [X] F7: Autogenerate data types 
 - [ ] F8: Autogenerate interfaces
 - [ ] F9: Proxy the interfaces with Rest call implementation
-- [ ] R1: Improve handling of java type conversion in XSL templates (convert only once)
+- [X] R1: Improve handling of java type conversion in XSL templates (convert only once)

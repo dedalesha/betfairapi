@@ -1,186 +1,181 @@
+	
+package alexei.betfairapi.entities;
 
-   	package alexei.betfairapi.entities;
-   	
+
 	/**
-	  * Market definition
-	  * This class was auto-generated from interface definition xml.
+	  * Market definition. This class was auto-generated from interface definition xml.
 	  */
-   	public class MarketState {
-   	
-   		
-		/**
-		  * marketStatus
-		  */
-		private String status;
+public class MarketState {
+	
+	/**
+	  * marketStatus
+	  */
+	private String status;
 
-		/**
-		  * betDelay
-		  */
-		private int betDelay;
+	/**
+	  * betDelay
+	  */
+	private int betDelay;
 
-		/**
-		  * bspReconciled
-		  */
-		private boolean bspReconciled;
+	/**
+	  * bspReconciled
+	  */
+	private boolean bspReconciled;
 
-		/**
-		  * complete
-		  */
-		private boolean complete;
+	/**
+	  * complete
+	  */
+	private boolean complete;
 
-		/**
-		  * inplay
-		  */
-		private boolean inplay;
+	/**
+	  * inplay
+	  */
+	private boolean inplay;
 
-		/**
-		  * numberActiveOfRunners
-		  */
-		private int numberOfActiveRunners;
+	/**
+	  * numberActiveOfRunners
+	  */
+	private int numberOfActiveRunners;
 
-		/**
-		  * lastMatchTime
-		  */
-		private java.util.Date lastMatchTime;
+	/**
+	  * lastMatchTime
+	  */
+	private java.util.Date lastMatchTime;
 
-		/**
-		  * 
-		  */
-		private double totalMatched;
+	/**
+	  * 
+	  */
+	private double totalMatched;
 
-		/**
-		  * Zero for closed markets
-		  */
-		private double totalAvailable;
+	/**
+	  * Zero for closed markets
+	  */
+	private double totalAvailable;
 
-   		
-   		
-		/**
-		  * marketStatus
-		  */
-		public String getStatus() {
-			return status;
-		}
+	/**
+	  * marketStatus
+	  */
+	public String getStatus() {
+		return status;
+	}
 
-		/**
-		  * marketStatus
-		  */
-		public void setStatus(String status) {
-			this.status = status;
-		}		
+	/**
+	  * marketStatus
+	  */
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-		/**
-		  * betDelay
-		  */
-		public int getBetDelay() {
-			return betDelay;
-		}
+	/**
+	  * betDelay
+	  */
+	public int getBetDelay() {
+		return betDelay;
+	}
 
-		/**
-		  * betDelay
-		  */
-		public void setBetDelay(int betDelay) {
-			this.betDelay = betDelay;
-		}		
+	/**
+	  * betDelay
+	  */
+	public void setBetDelay(int betDelay) {
+		this.betDelay = betDelay;
+	}
 
-		/**
-		  * bspReconciled
-		  */
-		public boolean isBspReconciled() {
-			return bspReconciled;
-		}
+	/**
+	  * bspReconciled
+	  */
+	public boolean isBspReconciled() {
+		return bspReconciled;
+	}
 
-		/**
-		  * bspReconciled
-		  */
-		public void setBspReconciled(boolean bspReconciled) {
-			this.bspReconciled = bspReconciled;
-		}		
+	/**
+	  * bspReconciled
+	  */
+	public void setBspReconciled(boolean bspReconciled) {
+		this.bspReconciled = bspReconciled;
+	}
 
-		/**
-		  * complete
-		  */
-		public boolean isComplete() {
-			return complete;
-		}
+	/**
+	  * complete
+	  */
+	public boolean isComplete() {
+		return complete;
+	}
 
-		/**
-		  * complete
-		  */
-		public void setComplete(boolean complete) {
-			this.complete = complete;
-		}		
+	/**
+	  * complete
+	  */
+	public void setComplete(boolean complete) {
+		this.complete = complete;
+	}
 
-		/**
-		  * inplay
-		  */
-		public boolean isInplay() {
-			return inplay;
-		}
+	/**
+	  * inplay
+	  */
+	public boolean isInplay() {
+		return inplay;
+	}
 
-		/**
-		  * inplay
-		  */
-		public void setInplay(boolean inplay) {
-			this.inplay = inplay;
-		}		
+	/**
+	  * inplay
+	  */
+	public void setInplay(boolean inplay) {
+		this.inplay = inplay;
+	}
 
-		/**
-		  * numberActiveOfRunners
-		  */
-		public int getNumberOfActiveRunners() {
-			return numberOfActiveRunners;
-		}
+	/**
+	  * numberActiveOfRunners
+	  */
+	public int getNumberOfActiveRunners() {
+		return numberOfActiveRunners;
+	}
 
-		/**
-		  * numberActiveOfRunners
-		  */
-		public void setNumberOfActiveRunners(int numberOfActiveRunners) {
-			this.numberOfActiveRunners = numberOfActiveRunners;
-		}		
+	/**
+	  * numberActiveOfRunners
+	  */
+	public void setNumberOfActiveRunners(int numberOfActiveRunners) {
+		this.numberOfActiveRunners = numberOfActiveRunners;
+	}
 
-		/**
-		  * lastMatchTime
-		  */
-		public java.util.Date getLastMatchTime() {
-			return lastMatchTime;
-		}
+	/**
+	  * lastMatchTime
+	  */
+	public java.util.Date getLastMatchTime() {
+		return lastMatchTime;
+	}
 
-		/**
-		  * lastMatchTime
-		  */
-		public void setLastMatchTime(java.util.Date lastMatchTime) {
-			this.lastMatchTime = lastMatchTime;
-		}		
+	/**
+	  * lastMatchTime
+	  */
+	public void setLastMatchTime(java.util.Date lastMatchTime) {
+		this.lastMatchTime = lastMatchTime;
+	}
 
-		/**
-		  * 
-		  */
-		public double getTotalMatched() {
-			return totalMatched;
-		}
+	/**
+	  * 
+	  */
+	public double getTotalMatched() {
+		return totalMatched;
+	}
 
-		/**
-		  * 
-		  */
-		public void setTotalMatched(double totalMatched) {
-			this.totalMatched = totalMatched;
-		}		
+	/**
+	  * 
+	  */
+	public void setTotalMatched(double totalMatched) {
+		this.totalMatched = totalMatched;
+	}
 
-		/**
-		  * Zero for closed markets
-		  */
-		public double getTotalAvailable() {
-			return totalAvailable;
-		}
+	/**
+	  * Zero for closed markets
+	  */
+	public double getTotalAvailable() {
+		return totalAvailable;
+	}
 
-		/**
-		  * Zero for closed markets
-		  */
-		public void setTotalAvailable(double totalAvailable) {
-			this.totalAvailable = totalAvailable;
-		}		
+	/**
+	  * Zero for closed markets
+	  */
+	public void setTotalAvailable(double totalAvailable) {
+		this.totalAvailable = totalAvailable;
+	}
 
-   	
-   	}
-  
+}
