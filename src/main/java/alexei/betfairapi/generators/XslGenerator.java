@@ -5,12 +5,12 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.stream.StreamResult;
 
-public class Generator {
+public class XslGenerator {
 
 	private Transformer transformer;
 	private Source source;
 
-	public Generator(Transformer transformer, Source source, String outputFolder, String packageName)  {
+	public XslGenerator(Transformer transformer, Source source, String outputFolder, String packageName)  {
 		transformer.setParameter("outputFolder", outputFolder);
 		transformer.setParameter("packageName", packageName);
 		this.transformer = transformer;

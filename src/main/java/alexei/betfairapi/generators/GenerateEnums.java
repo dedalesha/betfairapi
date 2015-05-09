@@ -20,7 +20,7 @@ public class GenerateEnums {
 		Transformer transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(xsl));
 		Source source = new StreamSource(xml);
 		
-		Generator generator = new Generator(transformer, source, DEFAULT_GENERATED_CLASSES_LOCATION, DEFAULT_PACKAGE_OF_GENERATED_CLASSES);
+		XslGenerator generator = new XslGenerator(transformer, source, DEFAULT_GENERATED_CLASSES_LOCATION, DEFAULT_PACKAGE_OF_GENERATED_CLASSES);
 		generator.generate();
 		
 		System.out.println("Generated Betfair API enumerations in "+DEFAULT_GENERATED_CLASSES_LOCATION);
