@@ -9,7 +9,7 @@ The plan so far is to:
  - Use drools for betting rules  
 
 - [X] F1: Can log-in
-- [ ] F2: Can list markets
+- [X] F2: Can list markets
 - [ ] F3: Choose and integrate a logging API: log4j 2 or logback
 - [X] F4: Introduce Java entities
 - [ ] F5: Introduce dependency injection: Spring or Guice
@@ -17,4 +17,5 @@ The plan so far is to:
 - [X] F7: Can auto-generate data types 
 - [X] F8: Can auto-generate betting API interface
 - [ ] F9: Proxy the interfaces with Rest call implementation
-- [X] R1: Improve handling of java type conversion in XSL templates (convert only once)
+- [ ] F10: Handle API error codes
+- [ ] F11: Use keystore for username, password, api key

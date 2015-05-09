@@ -5,6 +5,15 @@ public class LoginResult {
 	private String token;
 	private LoginStatus status;
 	private String error;
+	private String product;
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
 
 	public String getToken() {
 		return token;

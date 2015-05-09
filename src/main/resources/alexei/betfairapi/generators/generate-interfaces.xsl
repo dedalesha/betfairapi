@@ -85,11 +85,12 @@
 <xsl:template match="package">	
 package <xsl:value-of select="@name" />;
 import java.util.*;
+import java.lang.annotation.*;
 
 </xsl:template>
 
 <xsl:template match="param-javadoc">
-	  * @param <xsl:value-of select="concat(if (@mandatory) then 'REQUIRED: ' else '', @name, ' ', normalize-space(@value))" /> 
+	  * @param <xsl:value-of select="@name, ' ', concat(if (@mandatory) then '(required) ' else '', normalize-space(@value))" /> 
 </xsl:template>
 
 <xsl:template match="javadoc">
@@ -102,18 +103,26 @@ import java.util.*;
 
 <xsl:template match="jinterface">
 public interface <xsl:value-of select="@name" /> {
+	
+	@Documented
+	@Retention(RetentionPolicy.RUNTIME)
+	public @interface Param {
+		String value();
+	}
+	
 	<xsl:apply-templates select="*" />
 }
 </xsl:template>
 
 <xsl:template match="method"><xsl:text>
 	</xsl:text>
-	<xsl:value-of select="concat(@type, ' ', @name)" />(<xsl:apply-templates select="param" />);
+	<xsl:value-of select="concat(@type, ' ', @name)" />(<xsl:apply-templates select="param" />
+	);
 </xsl:template>
 
 <xsl:template match="param">
-	<xsl:value-of select="concat(@type, ' ', @name)" />
-	<xsl:if test="following-sibling::*[1]">, </xsl:if>
+		@Param("<xsl:value-of select="@name" />") <xsl:value-of select="concat(@type, ' ', @name)" />
+		<xsl:if test="following-sibling::*[1]">,</xsl:if>
 </xsl:template>
 
 <!-- entry point -->

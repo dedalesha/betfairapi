@@ -15,9 +15,30 @@ import static javax.ws.rs.client.ClientBuilder.*;
 
 public class Login {
 
+	private static String sessionId;
+	private static String applicationKey;
+	
+	public static String getSessionId() {
+		return sessionId;
+	}
+
+	public static void setSessionId(String sessionId) {
+		Login.sessionId = sessionId;
+	}
+
+	public static String getAppKey() {
+		return applicationKey;
+	}
+
+	public static void setAppKey(String appKey) {
+		Login.applicationKey = appKey;
+	}
+
 	public static String getSessionId(String username, String password, String appKey) {
 		
 		//TODO: add logging
+		
+		setAppKey(appKey);
 		
 		Form form = new Form();
 		form.param("username", username);
@@ -35,6 +56,7 @@ public class Login {
 
 		
 		if (loginResult.getStatus() == LoginStatus.SUCCESS) {
+			setSessionId(loginResult.getToken());
 			return loginResult.getToken();
 		} else {
 			throw new RuntimeException("Could not log in: "+loginResult.getError());
