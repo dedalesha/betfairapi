@@ -11,6 +11,7 @@ import org.glassfish.jersey.filter.LoggingFilter;
 
 import alexei.betfairapi.entities.LoginResult;
 import alexei.betfairapi.entities.LoginStatus;
+import alexei.betfairapi.keystore.KeyStoreAuth;
 import static javax.ws.rs.client.ClientBuilder.*;
 
 public class Login {
@@ -22,46 +23,42 @@ public class Login {
 		return sessionId;
 	}
 
-	public static void setSessionId(String sessionId) {
-		Login.sessionId = sessionId;
-	}
-
 	public static String getAppKey() {
 		return applicationKey;
 	}
 
-	public static void setAppKey(String appKey) {
-		Login.applicationKey = appKey;
-	}
-
-	public static String getSessionId(String username, String password, String appKey) {
+	public static String login() {
 		
 		//TODO: add logging
-		
-		setAppKey(appKey);
-		
-		Form form = new Form();
-		form.param("username", username);
-		form.param("password", password);
-
-		Response response = newClient()
-			.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true)) //TODO: add logging filter only if debug is enabled
-			.target("https://identitysso.betfair.com/api/login")
-			.request(MediaType.APPLICATION_JSON)
-			.header("X-Application", appKey)
-			.header("Content-Type", MediaType.APPLICATION_FORM_URLENCODED)
-			.post(Entity.form(form));
-		
-		LoginResult loginResult = response.readEntity(LoginResult.class);
-
-		
-		if (loginResult.getStatus() == LoginStatus.SUCCESS) {
-			setSessionId(loginResult.getToken());
-			return loginResult.getToken();
-		} else {
-			throw new RuntimeException("Could not log in: "+loginResult.getError());
+		try {
+			KeyStoreAuth auth = KeyStoreAuth.getInstance();
+			applicationKey = auth.getAppkey();
+			
+			Form form = new Form();
+			form.param("username", auth.getUsername());
+			form.param("password", auth.getPassword());
+	
+			Response response = newClient()
+				.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true)) //TODO: add logging filter only if debug is enabled
+				.target("https://identitysso.betfair.com/api/login")
+				.request(MediaType.APPLICATION_JSON)
+				.header("X-Application", auth.getAppkey())
+				.header("Content-Type", MediaType.APPLICATION_FORM_URLENCODED)
+				.post(Entity.form(form));
+			
+			LoginResult loginResult = response.readEntity(LoginResult.class);
+	
+			
+			if (loginResult.getStatus() == LoginStatus.SUCCESS) {
+				sessionId = loginResult.getToken();
+				return loginResult.getToken();
+			} else {
+				throw new RuntimeException("Could not log in: "+loginResult.getError());
+			}
+		} catch (Exception e) {
+			throw new RuntimeException("Could not log in: "+e, e);
 		}
 
 	}
-	
+
 }

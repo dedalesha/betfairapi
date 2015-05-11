@@ -28,7 +28,7 @@ public class MarketOperations {
 	}
 	
 	public static void main(String[] args) {
-		Login.getSessionId(args[0], args[1], args[2]);
+		Login.login();
 		MarketOperations operations = new MarketOperations();
 		operations.listFootballMarkets();
 	}
