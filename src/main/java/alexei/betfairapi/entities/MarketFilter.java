@@ -45,17 +45,17 @@ public class MarketFilter {
 	/**
 	  * Restrict to bsp markets only, if True or non-bsp markets if False. If not specified then returns both BSP and non-BSP markets
 	  */
-	private boolean bspOnly;
+	private Boolean bspOnly;
 
 	/**
 	  * Restrict to markets that will turn in play if True or will not turn in play if false. If not specified, returns both.
 	  */
-	private boolean turnInPlayEnabled;
+	private Boolean turnInPlayEnabled;
 
 	/**
 	  * Restrict to markets that will turn in play if True or will not turn in play if false. If not specified, returns both.
 	  */
-	private boolean inPlayOnly;
+	private Boolean inPlayOnly;
 
 	/**
 	  * Restrict to markets that match the betting type of the market (i.e. Odds, Asian Handicap Singles, or Asian Handicap Doubles
@@ -183,42 +183,42 @@ public class MarketFilter {
 	/**
 	  * Restrict to bsp markets only, if True or non-bsp markets if False. If not specified then returns both BSP and non-BSP markets
 	  */
-	public boolean isBspOnly() {
+	public Boolean isBspOnly() {
 		return bspOnly;
 	}
 
 	/**
 	  * Restrict to bsp markets only, if True or non-bsp markets if False. If not specified then returns both BSP and non-BSP markets
 	  */
-	public void setBspOnly(boolean bspOnly) {
+	public void setBspOnly(Boolean bspOnly) {
 		this.bspOnly = bspOnly;
 	}
 
 	/**
 	  * Restrict to markets that will turn in play if True or will not turn in play if false. If not specified, returns both.
 	  */
-	public boolean isTurnInPlayEnabled() {
+	public Boolean isTurnInPlayEnabled() {
 		return turnInPlayEnabled;
 	}
 
 	/**
 	  * Restrict to markets that will turn in play if True or will not turn in play if false. If not specified, returns both.
 	  */
-	public void setTurnInPlayEnabled(boolean turnInPlayEnabled) {
+	public void setTurnInPlayEnabled(Boolean turnInPlayEnabled) {
 		this.turnInPlayEnabled = turnInPlayEnabled;
 	}
 
 	/**
 	  * Restrict to markets that will turn in play if True or will not turn in play if false. If not specified, returns both.
 	  */
-	public boolean isInPlayOnly() {
+	public Boolean isInPlayOnly() {
 		return inPlayOnly;
 	}
 
 	/**
 	  * Restrict to markets that will turn in play if True or will not turn in play if false. If not specified, returns both.
 	  */
-	public void setInPlayOnly(boolean inPlayOnly) {
+	public void setInPlayOnly(Boolean inPlayOnly) {
 		this.inPlayOnly = inPlayOnly;
 	}
 

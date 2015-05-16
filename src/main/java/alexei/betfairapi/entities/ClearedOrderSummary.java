@@ -25,7 +25,7 @@ public class ClearedOrderSummary {
 	/**
 	  * The id of the selection bet on. Available at RUNNER groupBy level or lower.
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * The id of the market bet on. Available at MARKET groupBy level or lower.
@@ -75,7 +75,7 @@ public class ClearedOrderSummary {
 	/**
 	  * The number of actual bets within this grouping (will be 1 for BET groupBy)
 	  */
-	private int betCount;
+	private Integer betCount;
 
 	/**
 	  * The cumulative amount of commission paid by the customer across all bets under this Item, in the account currency. Available at EXCHANGE, EVENT_TYPE, EVENT and MARKET level groupings only.
@@ -90,7 +90,7 @@ public class ClearedOrderSummary {
 	/**
 	  * If true, then the matched price was affected by a reduction factor due to of a runner removal from this Horse Racing market.
 	  */
-	private boolean priceReduced;
+	private Boolean priceReduced;
 
 	/**
 	  * The cumulative bet size that was settled as matched or voided under this Item, in the account currency. Available at SIDE groupBy level or lower.
@@ -152,14 +152,14 @@ public class ClearedOrderSummary {
 	/**
 	  * The id of the selection bet on. Available at RUNNER groupBy level or lower.
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The id of the selection bet on. Available at RUNNER groupBy level or lower.
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 
@@ -292,14 +292,14 @@ public class ClearedOrderSummary {
 	/**
 	  * The number of actual bets within this grouping (will be 1 for BET groupBy)
 	  */
-	public int getBetCount() {
+	public Integer getBetCount() {
 		return betCount;
 	}
 
 	/**
 	  * The number of actual bets within this grouping (will be 1 for BET groupBy)
 	  */
-	public void setBetCount(int betCount) {
+	public void setBetCount(Integer betCount) {
 		this.betCount = betCount;
 	}
 
@@ -334,14 +334,14 @@ public class ClearedOrderSummary {
 	/**
 	  * If true, then the matched price was affected by a reduction factor due to of a runner removal from this Horse Racing market.
 	  */
-	public boolean isPriceReduced() {
+	public Boolean isPriceReduced() {
 		return priceReduced;
 	}
 
 	/**
 	  * If true, then the matched price was affected by a reduction factor due to of a runner removal from this Horse Racing market.
 	  */
-	public void setPriceReduced(boolean priceReduced) {
+	public void setPriceReduced(Boolean priceReduced) {
 		this.priceReduced = priceReduced;
 	}
 

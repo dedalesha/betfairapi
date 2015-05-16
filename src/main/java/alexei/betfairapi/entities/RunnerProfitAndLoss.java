@@ -10,7 +10,7 @@ public class RunnerProfitAndLoss {
 	/**
 	  * The unique identifier for the selection
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * Profit and loss for the market if this selection is the winner
@@ -30,14 +30,14 @@ public class RunnerProfitAndLoss {
 	/**
 	  * The unique identifier for the selection
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The unique identifier for the selection
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 

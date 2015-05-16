@@ -10,7 +10,7 @@ public class RunnerCatalog {
 	/**
 	  * The unique id for the selection.
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * The name of the runner
@@ -25,7 +25,7 @@ public class RunnerCatalog {
 	/**
 	  * The sort priority of this runner
 	  */
-	private int sortPriority;
+	private Integer sortPriority;
 
 	/**
 	  * Metadata associated with the runner
@@ -35,14 +35,14 @@ public class RunnerCatalog {
 	/**
 	  * The unique id for the selection.
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The unique id for the selection.
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 
@@ -77,14 +77,14 @@ public class RunnerCatalog {
 	/**
 	  * The sort priority of this runner
 	  */
-	public int getSortPriority() {
+	public Integer getSortPriority() {
 		return sortPriority;
 	}
 
 	/**
 	  * The sort priority of this runner
 	  */
-	public void setSortPriority(int sortPriority) {
+	public void setSortPriority(Integer sortPriority) {
 		this.sortPriority = sortPriority;
 	}
 

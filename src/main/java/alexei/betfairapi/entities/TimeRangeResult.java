@@ -15,7 +15,7 @@ public class TimeRangeResult {
 	/**
 	  * Count of markets associated with this TimeRange
 	  */
-	private int marketCount;
+	private Integer marketCount;
 
 	/**
 	  * TimeRange
@@ -34,14 +34,14 @@ public class TimeRangeResult {
 	/**
 	  * Count of markets associated with this TimeRange
 	  */
-	public int getMarketCount() {
+	public Integer getMarketCount() {
 		return marketCount;
 	}
 
 	/**
 	  * Count of markets associated with this TimeRange
 	  */
-	public void setMarketCount(int marketCount) {
+	public void setMarketCount(Integer marketCount) {
 		this.marketCount = marketCount;
 	}
 

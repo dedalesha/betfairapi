@@ -10,19 +10,19 @@ public class MarketVersion {
 	/**
 	  * A non-monotonically increasing number indicating market changes
 	  */
-	private long version;
+	private Long version;
 
 	/**
 	  * A non-monotonically increasing number indicating market changes
 	  */
-	public long getVersion() {
+	public Long getVersion() {
 		return version;
 	}
 
 	/**
 	  * A non-monotonically increasing number indicating market changes
 	  */
-	public void setVersion(long version) {
+	public void setVersion(Long version) {
 		this.version = version;
 	}
 

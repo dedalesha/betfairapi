@@ -10,7 +10,7 @@ public class Runner {
 	/**
 	  * The unique id of the runner (selection)
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * The handicap
@@ -65,14 +65,14 @@ public class Runner {
 	/**
 	  * The unique id of the runner (selection)
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The unique id of the runner (selection)
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 

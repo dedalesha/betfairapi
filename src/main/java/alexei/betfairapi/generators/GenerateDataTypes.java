@@ -10,7 +10,7 @@ import javax.xml.transform.stream.StreamSource;
 public class GenerateDataTypes {
 	
 	private static final String DEFAULT_PACKAGE_OF_GENERATED_CLASSES = "alexei.betfairapi.entities";
-	private static final String DEFAULT_GENERATED_CLASSES_LOCATION = "target/generated-classes/betfair-api/data-types";
+	private static final String DEFAULT_GENERATED_CLASSES_LOCATION = "target/generated-sources/betfair-api/data-types";
 	
 	public static void main(String[] args) throws Exception {
 		

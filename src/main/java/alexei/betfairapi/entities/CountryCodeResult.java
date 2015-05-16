@@ -15,7 +15,7 @@ public class CountryCodeResult {
 	/**
 	  * Count of markets associated with this Country Code
 	  */
-	private int marketCount;
+	private Integer marketCount;
 
 	/**
 	  * Country Code
@@ -34,14 +34,14 @@ public class CountryCodeResult {
 	/**
 	  * Count of markets associated with this Country Code
 	  */
-	public int getMarketCount() {
+	public Integer getMarketCount() {
 		return marketCount;
 	}
 
 	/**
 	  * Count of markets associated with this Country Code
 	  */
-	public void setMarketCount(int marketCount) {
+	public void setMarketCount(Integer marketCount) {
 		this.marketCount = marketCount;
 	}
 

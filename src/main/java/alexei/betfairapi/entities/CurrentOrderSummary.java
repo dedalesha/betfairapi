@@ -20,7 +20,7 @@ public class CurrentOrderSummary {
 	/**
 	  * The selection id the order is for.
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * The handicap of the bet.
@@ -138,14 +138,14 @@ public class CurrentOrderSummary {
 	/**
 	  * The selection id the order is for.
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The selection id the order is for.
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 

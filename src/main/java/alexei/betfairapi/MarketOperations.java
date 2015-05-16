@@ -27,9 +27,11 @@ public class MarketOperations {
 		List<MarketCatalogue> listMarketCatalogue = api.listMarketCatalogue(marketFilter, marketProjection, MarketSort.MAXIMUM_TRADED, 20, null);
 		System.out.println(listMarketCatalogue);
 		
-		marketFilter.setEventIds(Collections.singleton("1"));
+		marketFilter.setEventTypeIds(Collections.singleton("1"));
+		marketFilter.setInPlayOnly(true);
 		List<EventResult> events = api.listEvents(marketFilter, null);
 		System.out.println(events);
+		System.out.println(events.size());
 	}
 	
 	public static void main(String[] args) {

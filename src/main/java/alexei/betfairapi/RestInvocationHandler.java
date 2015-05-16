@@ -20,7 +20,7 @@ import alexei.betfairapi.entities.BetfairAPI;
 
 public class RestInvocationHandler implements InvocationHandler {
 
-	private Client rsClient = ClientBuilder.newClient();
+	private Client rsClient = ClientBuilder.newBuilder().register(BetfairObjectMapper.class).build();
 	
 	public RestInvocationHandler() {
 	}

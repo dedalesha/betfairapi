@@ -15,7 +15,7 @@ public class CompetitionResult {
 	/**
 	  * Count of markets associated with this competition
 	  */
-	private int marketCount;
+	private Integer marketCount;
 
 	/**
 	  * Region in which this competition is happening
@@ -39,14 +39,14 @@ public class CompetitionResult {
 	/**
 	  * Count of markets associated with this competition
 	  */
-	public int getMarketCount() {
+	public Integer getMarketCount() {
 		return marketCount;
 	}
 
 	/**
 	  * Count of markets associated with this competition
 	  */
-	public void setMarketCount(int marketCount) {
+	public void setMarketCount(Integer marketCount) {
 		this.marketCount = marketCount;
 	}
 

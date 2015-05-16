@@ -15,7 +15,7 @@ public class MarketRates {
 	/**
 	  * discountAllowed
 	  */
-	private boolean discountAllowed;
+	private Boolean discountAllowed;
 
 	/**
 	  * marketBaseRate
@@ -34,14 +34,14 @@ public class MarketRates {
 	/**
 	  * discountAllowed
 	  */
-	public boolean isDiscountAllowed() {
+	public Boolean isDiscountAllowed() {
 		return discountAllowed;
 	}
 
 	/**
 	  * discountAllowed
 	  */
-	public void setDiscountAllowed(boolean discountAllowed) {
+	public void setDiscountAllowed(Boolean discountAllowed) {
 		this.discountAllowed = discountAllowed;
 	}
 

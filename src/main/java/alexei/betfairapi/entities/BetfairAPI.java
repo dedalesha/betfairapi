@@ -98,7 +98,7 @@ public interface BetfairAPI {
 		@Param("filter") MarketFilter filter,
 		@Param("marketProjection") Set<MarketProjection> marketProjection,
 		@Param("sort") MarketSort sort,
-		@Param("maxResults") int maxResults,
+		@Param("maxResults") Integer maxResults,
 		@Param("locale") String locale
 	);
 
@@ -140,8 +140,8 @@ public interface BetfairAPI {
 		@Param("dateRange") TimeRange dateRange,
 		@Param("orderBy") OrderBy orderBy,
 		@Param("sortDir") SortDir sortDir,
-		@Param("fromRecord") int fromRecord,
-		@Param("recordCount") int recordCount
+		@Param("fromRecord") Integer fromRecord,
+		@Param("recordCount") Integer recordCount
 	);
 
 	/**
@@ -170,10 +170,10 @@ public interface BetfairAPI {
 		@Param("side") Side side,
 		@Param("settledDateRange") TimeRange settledDateRange,
 		@Param("groupBy") GroupBy groupBy,
-		@Param("includeItemDescription") boolean includeItemDescription,
+		@Param("includeItemDescription") Boolean includeItemDescription,
 		@Param("locale") String locale,
-		@Param("fromRecord") int fromRecord,
-		@Param("recordCount") int recordCount
+		@Param("fromRecord") Integer fromRecord,
+		@Param("recordCount") Integer recordCount
 	);
 
 	/**
@@ -233,9 +233,9 @@ public interface BetfairAPI {
 	  */
 	List<MarketProfitAndLoss> listMarketProfitAndLoss(
 		@Param("marketIds") Set<String> marketIds,
-		@Param("includeSettledBets") boolean includeSettledBets,
-		@Param("includeBspBets") boolean includeBspBets,
-		@Param("netOfCommission") boolean netOfCommission
+		@Param("includeSettledBets") Boolean includeSettledBets,
+		@Param("includeBspBets") Boolean includeBspBets,
+		@Param("netOfCommission") Boolean netOfCommission
 	);
 
 }

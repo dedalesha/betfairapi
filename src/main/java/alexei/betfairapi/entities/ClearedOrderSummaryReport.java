@@ -15,7 +15,7 @@ public class ClearedOrderSummaryReport {
 	/**
 	  * Indicates whether there are further result items beyond this page. Note that underlying data is highly time-dependent and the subsequent search orders query might return an empty result.
 	  */
-	private boolean moreAvailable;
+	private Boolean moreAvailable;
 
 	/**
 	  * The list of cleared orders returned by your query. This will be a valid list (i.e. empty or non-empty but never 'null').
@@ -34,14 +34,14 @@ public class ClearedOrderSummaryReport {
 	/**
 	  * Indicates whether there are further result items beyond this page. Note that underlying data is highly time-dependent and the subsequent search orders query might return an empty result.
 	  */
-	public boolean isMoreAvailable() {
+	public Boolean isMoreAvailable() {
 		return moreAvailable;
 	}
 
 	/**
 	  * Indicates whether there are further result items beyond this page. Note that underlying data is highly time-dependent and the subsequent search orders query might return an empty result.
 	  */
-	public void setMoreAvailable(boolean moreAvailable) {
+	public void setMoreAvailable(Boolean moreAvailable) {
 		this.moreAvailable = moreAvailable;
 	}
 

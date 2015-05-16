@@ -20,12 +20,12 @@ public class PriceProjection {
 	/**
 	  * Indicates if the returned prices should include virtual prices. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS priceData selections, default value is false.
 	  */
-	private boolean virtualise;
+	private Boolean virtualise;
 
 	/**
 	  * Indicates if the volume returned at each price point should be the absolute value or a cumulative sum of volumes available at the price and all better prices. If unspecified defaults to false. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS price projections. Not supported as yet.
 	  */
-	private boolean rolloverStakes;
+	private Boolean rolloverStakes;
 
 	/**
 	  * The basic price data you want to receive in the response.
@@ -58,28 +58,28 @@ public class PriceProjection {
 	/**
 	  * Indicates if the returned prices should include virtual prices. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS priceData selections, default value is false.
 	  */
-	public boolean isVirtualise() {
+	public Boolean isVirtualise() {
 		return virtualise;
 	}
 
 	/**
 	  * Indicates if the returned prices should include virtual prices. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS priceData selections, default value is false.
 	  */
-	public void setVirtualise(boolean virtualise) {
+	public void setVirtualise(Boolean virtualise) {
 		this.virtualise = virtualise;
 	}
 
 	/**
 	  * Indicates if the volume returned at each price point should be the absolute value or a cumulative sum of volumes available at the price and all better prices. If unspecified defaults to false. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS price projections. Not supported as yet.
 	  */
-	public boolean isRolloverStakes() {
+	public Boolean isRolloverStakes() {
 		return rolloverStakes;
 	}
 
 	/**
 	  * Indicates if the volume returned at each price point should be the absolute value or a cumulative sum of volumes available at the price and all better prices. If unspecified defaults to false. Applicable to EX_BEST_OFFERS and EX_ALL_OFFERS price projections. Not supported as yet.
 	  */
-	public void setRolloverStakes(boolean rolloverStakes) {
+	public void setRolloverStakes(Boolean rolloverStakes) {
 		this.rolloverStakes = rolloverStakes;
 	}
 

@@ -10,7 +10,7 @@ import javax.xml.transform.stream.StreamSource;
 public class GenerateEnums {
 	
 	private static final String DEFAULT_PACKAGE_OF_GENERATED_CLASSES = "alexei.betfairapi.entities";
-	private static final String DEFAULT_GENERATED_CLASSES_LOCATION = "target/generated-classes/betfair-api/enums";
+	private static final String DEFAULT_GENERATED_CLASSES_LOCATION = "target/generated-sources/betfair-api/enums";
 	
 	public static void main(String[] args) throws Exception {
 		

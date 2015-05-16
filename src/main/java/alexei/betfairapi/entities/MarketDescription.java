@@ -10,12 +10,12 @@ public class MarketDescription {
 	/**
 	  * persistenceMarket
 	  */
-	private boolean persistenceEnabled;
+	private Boolean persistenceEnabled;
 
 	/**
 	  * bspMarket
 	  */
-	private boolean bspMarket;
+	private Boolean bspMarket;
 
 	/**
 	  * marketTime
@@ -40,7 +40,7 @@ public class MarketDescription {
 	/**
 	  * canTurnInPlay
 	  */
-	private boolean turnInPlayEnabled;
+	private Boolean turnInPlayEnabled;
 
 	/**
 	  * market base type
@@ -60,7 +60,7 @@ public class MarketDescription {
 	/**
 	  * 
 	  */
-	private boolean discountAllowed;
+	private Boolean discountAllowed;
 
 	/**
 	  * 
@@ -75,7 +75,7 @@ public class MarketDescription {
 	/**
 	  * 
 	  */
-	private boolean rulesHasDate;
+	private Boolean rulesHasDate;
 
 	/**
 	  * 
@@ -90,28 +90,28 @@ public class MarketDescription {
 	/**
 	  * persistenceMarket
 	  */
-	public boolean isPersistenceEnabled() {
+	public Boolean isPersistenceEnabled() {
 		return persistenceEnabled;
 	}
 
 	/**
 	  * persistenceMarket
 	  */
-	public void setPersistenceEnabled(boolean persistenceEnabled) {
+	public void setPersistenceEnabled(Boolean persistenceEnabled) {
 		this.persistenceEnabled = persistenceEnabled;
 	}
 
 	/**
 	  * bspMarket
 	  */
-	public boolean isBspMarket() {
+	public Boolean isBspMarket() {
 		return bspMarket;
 	}
 
 	/**
 	  * bspMarket
 	  */
-	public void setBspMarket(boolean bspMarket) {
+	public void setBspMarket(Boolean bspMarket) {
 		this.bspMarket = bspMarket;
 	}
 
@@ -174,14 +174,14 @@ public class MarketDescription {
 	/**
 	  * canTurnInPlay
 	  */
-	public boolean isTurnInPlayEnabled() {
+	public Boolean isTurnInPlayEnabled() {
 		return turnInPlayEnabled;
 	}
 
 	/**
 	  * canTurnInPlay
 	  */
-	public void setTurnInPlayEnabled(boolean turnInPlayEnabled) {
+	public void setTurnInPlayEnabled(Boolean turnInPlayEnabled) {
 		this.turnInPlayEnabled = turnInPlayEnabled;
 	}
 
@@ -230,14 +230,14 @@ public class MarketDescription {
 	/**
 	  * 
 	  */
-	public boolean isDiscountAllowed() {
+	public Boolean isDiscountAllowed() {
 		return discountAllowed;
 	}
 
 	/**
 	  * 
 	  */
-	public void setDiscountAllowed(boolean discountAllowed) {
+	public void setDiscountAllowed(Boolean discountAllowed) {
 		this.discountAllowed = discountAllowed;
 	}
 
@@ -272,14 +272,14 @@ public class MarketDescription {
 	/**
 	  * 
 	  */
-	public boolean isRulesHasDate() {
+	public Boolean isRulesHasDate() {
 		return rulesHasDate;
 	}
 
 	/**
 	  * 
 	  */
-	public void setRulesHasDate(boolean rulesHasDate) {
+	public void setRulesHasDate(Boolean rulesHasDate) {
 		this.rulesHasDate = rulesHasDate;
 	}
 

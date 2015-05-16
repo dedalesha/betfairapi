@@ -15,7 +15,7 @@ public class MarketBook {
 	/**
 	  * True if the data returned by listMarketBook will be delayed. The data may be delayed because you are not logged in with a funded account or you are using an Application Key that does not allow up to date data.
 	  */
-	private boolean isMarketDataDelayed;
+	private Boolean isMarketDataDelayed;
 
 	/**
 	  * The status of the market, for example ACTIVE, SUSPENDED, SETTLED, etc.
@@ -25,37 +25,37 @@ public class MarketBook {
 	/**
 	  * The number of seconds an order is held until it is submitted into the market. Orders are usually delayed when the market is in-play
 	  */
-	private int betDelay;
+	private Integer betDelay;
 
 	/**
 	  * True if the market starting price has been reconciled
 	  */
-	private boolean bspReconciled;
+	private Boolean bspReconciled;
 
 	/**
 	  * 
 	  */
-	private boolean complete;
+	private Boolean complete;
 
 	/**
 	  * True if the market is currently in play
 	  */
-	private boolean inplay;
+	private Boolean inplay;
 
 	/**
 	  * The number of selections that could be settled as winners
 	  */
-	private int numberOfWinners;
+	private Integer numberOfWinners;
 
 	/**
 	  * The number of runners in the market
 	  */
-	private int numberOfRunners;
+	private Integer numberOfRunners;
 
 	/**
 	  * The number of runners that are currently active. An active runner is a selection available for betting
 	  */
-	private int numberOfActiveRunners;
+	private Integer numberOfActiveRunners;
 
 	/**
 	  * The most recent time an order was executed
@@ -75,17 +75,17 @@ public class MarketBook {
 	/**
 	  * True if cross matching is enabled for this market.
 	  */
-	private boolean crossMatching;
+	private Boolean crossMatching;
 
 	/**
 	  * True if runners in the market can be voided
 	  */
-	private boolean runnersVoidable;
+	private Boolean runnersVoidable;
 
 	/**
 	  * The version of the market. The version increments whenever the market status changes, for example, turning in-play, or suspended when a goal score.
 	  */
-	private long version;
+	private Long version;
 
 	/**
 	  * Information about the runners (selections) in the market.
@@ -109,14 +109,14 @@ public class MarketBook {
 	/**
 	  * True if the data returned by listMarketBook will be delayed. The data may be delayed because you are not logged in with a funded account or you are using an Application Key that does not allow up to date data.
 	  */
-	public boolean isIsMarketDataDelayed() {
+	public Boolean isIsMarketDataDelayed() {
 		return isMarketDataDelayed;
 	}
 
 	/**
 	  * True if the data returned by listMarketBook will be delayed. The data may be delayed because you are not logged in with a funded account or you are using an Application Key that does not allow up to date data.
 	  */
-	public void setIsMarketDataDelayed(boolean isMarketDataDelayed) {
+	public void setIsMarketDataDelayed(Boolean isMarketDataDelayed) {
 		this.isMarketDataDelayed = isMarketDataDelayed;
 	}
 
@@ -137,98 +137,98 @@ public class MarketBook {
 	/**
 	  * The number of seconds an order is held until it is submitted into the market. Orders are usually delayed when the market is in-play
 	  */
-	public int getBetDelay() {
+	public Integer getBetDelay() {
 		return betDelay;
 	}
 
 	/**
 	  * The number of seconds an order is held until it is submitted into the market. Orders are usually delayed when the market is in-play
 	  */
-	public void setBetDelay(int betDelay) {
+	public void setBetDelay(Integer betDelay) {
 		this.betDelay = betDelay;
 	}
 
 	/**
 	  * True if the market starting price has been reconciled
 	  */
-	public boolean isBspReconciled() {
+	public Boolean isBspReconciled() {
 		return bspReconciled;
 	}
 
 	/**
 	  * True if the market starting price has been reconciled
 	  */
-	public void setBspReconciled(boolean bspReconciled) {
+	public void setBspReconciled(Boolean bspReconciled) {
 		this.bspReconciled = bspReconciled;
 	}
 
 	/**
 	  * 
 	  */
-	public boolean isComplete() {
+	public Boolean isComplete() {
 		return complete;
 	}
 
 	/**
 	  * 
 	  */
-	public void setComplete(boolean complete) {
+	public void setComplete(Boolean complete) {
 		this.complete = complete;
 	}
 
 	/**
 	  * True if the market is currently in play
 	  */
-	public boolean isInplay() {
+	public Boolean isInplay() {
 		return inplay;
 	}
 
 	/**
 	  * True if the market is currently in play
 	  */
-	public void setInplay(boolean inplay) {
+	public void setInplay(Boolean inplay) {
 		this.inplay = inplay;
 	}
 
 	/**
 	  * The number of selections that could be settled as winners
 	  */
-	public int getNumberOfWinners() {
+	public Integer getNumberOfWinners() {
 		return numberOfWinners;
 	}
 
 	/**
 	  * The number of selections that could be settled as winners
 	  */
-	public void setNumberOfWinners(int numberOfWinners) {
+	public void setNumberOfWinners(Integer numberOfWinners) {
 		this.numberOfWinners = numberOfWinners;
 	}
 
 	/**
 	  * The number of runners in the market
 	  */
-	public int getNumberOfRunners() {
+	public Integer getNumberOfRunners() {
 		return numberOfRunners;
 	}
 
 	/**
 	  * The number of runners in the market
 	  */
-	public void setNumberOfRunners(int numberOfRunners) {
+	public void setNumberOfRunners(Integer numberOfRunners) {
 		this.numberOfRunners = numberOfRunners;
 	}
 
 	/**
 	  * The number of runners that are currently active. An active runner is a selection available for betting
 	  */
-	public int getNumberOfActiveRunners() {
+	public Integer getNumberOfActiveRunners() {
 		return numberOfActiveRunners;
 	}
 
 	/**
 	  * The number of runners that are currently active. An active runner is a selection available for betting
 	  */
-	public void setNumberOfActiveRunners(int numberOfActiveRunners) {
+	public void setNumberOfActiveRunners(Integer numberOfActiveRunners) {
 		this.numberOfActiveRunners = numberOfActiveRunners;
 	}
 
@@ -277,42 +277,42 @@ public class MarketBook {
 	/**
 	  * True if cross matching is enabled for this market.
 	  */
-	public boolean isCrossMatching() {
+	public Boolean isCrossMatching() {
 		return crossMatching;
 	}
 
 	/**
 	  * True if cross matching is enabled for this market.
 	  */
-	public void setCrossMatching(boolean crossMatching) {
+	public void setCrossMatching(Boolean crossMatching) {
 		this.crossMatching = crossMatching;
 	}
 
 	/**
 	  * True if runners in the market can be voided
 	  */
-	public boolean isRunnersVoidable() {
+	public Boolean isRunnersVoidable() {
 		return runnersVoidable;
 	}
 
 	/**
 	  * True if runners in the market can be voided
 	  */
-	public void setRunnersVoidable(boolean runnersVoidable) {
+	public void setRunnersVoidable(Boolean runnersVoidable) {
 		this.runnersVoidable = runnersVoidable;
 	}
 
 	/**
 	  * The version of the market. The version increments whenever the market status changes, for example, turning in-play, or suspended when a goal score.
 	  */
-	public long getVersion() {
+	public Long getVersion() {
 		return version;
 	}
 
 	/**
 	  * The version of the market. The version increments whenever the market status changes, for example, turning in-play, or suspended when a goal score.
 	  */
-	public void setVersion(long version) {
+	public void setVersion(Long version) {
 		this.version = version;
 	}
 

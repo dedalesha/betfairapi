@@ -20,7 +20,7 @@ public class MarketLicence {
 	/**
 	  * The market's start date and time are relevant to the rules.
 	  */
-	private boolean rulesHasDate;
+	private Boolean rulesHasDate;
 
 	/**
 	  * Clarifications to the rules for the market
@@ -58,14 +58,14 @@ public class MarketLicence {
 	/**
 	  * The market's start date and time are relevant to the rules.
 	  */
-	public boolean isRulesHasDate() {
+	public Boolean isRulesHasDate() {
 		return rulesHasDate;
 	}
 
 	/**
 	  * The market's start date and time are relevant to the rules.
 	  */
-	public void setRulesHasDate(boolean rulesHasDate) {
+	public void setRulesHasDate(Boolean rulesHasDate) {
 		this.rulesHasDate = rulesHasDate;
 	}
 

@@ -15,7 +15,7 @@ public class VenueResult {
 	/**
 	  * Count of markets associated with this Venue
 	  */
-	private int marketCount;
+	private Integer marketCount;
 
 	/**
 	  * Venue
@@ -34,14 +34,14 @@ public class VenueResult {
 	/**
 	  * Count of markets associated with this Venue
 	  */
-	public int getMarketCount() {
+	public Integer getMarketCount() {
 		return marketCount;
 	}
 
 	/**
 	  * Count of markets associated with this Venue
 	  */
-	public void setMarketCount(int marketCount) {
+	public void setMarketCount(Integer marketCount) {
 		this.marketCount = marketCount;
 	}
 

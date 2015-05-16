@@ -15,27 +15,27 @@ public class MarketState {
 	/**
 	  * betDelay
 	  */
-	private int betDelay;
+	private Integer betDelay;
 
 	/**
 	  * bspReconciled
 	  */
-	private boolean bspReconciled;
+	private Boolean bspReconciled;
 
 	/**
 	  * complete
 	  */
-	private boolean complete;
+	private Boolean complete;
 
 	/**
 	  * inplay
 	  */
-	private boolean inplay;
+	private Boolean inplay;
 
 	/**
 	  * numberActiveOfRunners
 	  */
-	private int numberOfActiveRunners;
+	private Integer numberOfActiveRunners;
 
 	/**
 	  * lastMatchTime
@@ -69,70 +69,70 @@ public class MarketState {
 	/**
 	  * betDelay
 	  */
-	public int getBetDelay() {
+	public Integer getBetDelay() {
 		return betDelay;
 	}
 
 	/**
 	  * betDelay
 	  */
-	public void setBetDelay(int betDelay) {
+	public void setBetDelay(Integer betDelay) {
 		this.betDelay = betDelay;
 	}
 
 	/**
 	  * bspReconciled
 	  */
-	public boolean isBspReconciled() {
+	public Boolean isBspReconciled() {
 		return bspReconciled;
 	}
 
 	/**
 	  * bspReconciled
 	  */
-	public void setBspReconciled(boolean bspReconciled) {
+	public void setBspReconciled(Boolean bspReconciled) {
 		this.bspReconciled = bspReconciled;
 	}
 
 	/**
 	  * complete
 	  */
-	public boolean isComplete() {
+	public Boolean isComplete() {
 		return complete;
 	}
 
 	/**
 	  * complete
 	  */
-	public void setComplete(boolean complete) {
+	public void setComplete(Boolean complete) {
 		this.complete = complete;
 	}
 
 	/**
 	  * inplay
 	  */
-	public boolean isInplay() {
+	public Boolean isInplay() {
 		return inplay;
 	}
 
 	/**
 	  * inplay
 	  */
-	public void setInplay(boolean inplay) {
+	public void setInplay(Boolean inplay) {
 		this.inplay = inplay;
 	}
 
 	/**
 	  * numberActiveOfRunners
 	  */
-	public int getNumberOfActiveRunners() {
+	public Integer getNumberOfActiveRunners() {
 		return numberOfActiveRunners;
 	}
 
 	/**
 	  * numberActiveOfRunners
 	  */
-	public void setNumberOfActiveRunners(int numberOfActiveRunners) {
+	public void setNumberOfActiveRunners(Integer numberOfActiveRunners) {
 		this.numberOfActiveRunners = numberOfActiveRunners;
 	}
 

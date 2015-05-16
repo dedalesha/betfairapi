@@ -15,7 +15,7 @@ public class RunnerId {
 	/**
 	  * The id of the selection bet on
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * The handicap associated with the runner in case of asian handicap markets, null otherwise.
@@ -39,14 +39,14 @@ public class RunnerId {
 	/**
 	  * The id of the selection bet on
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The id of the selection bet on
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 

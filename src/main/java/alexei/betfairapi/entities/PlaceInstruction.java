@@ -15,7 +15,7 @@ public class PlaceInstruction {
 	/**
 	  * The selection_id.
 	  */
-	private long selectionId;
+	private Long selectionId;
 
 	/**
 	  * The handicap applied to the selection, if on an asian-style market.
@@ -59,14 +59,14 @@ public class PlaceInstruction {
 	/**
 	  * The selection_id.
 	  */
-	public long getSelectionId() {
+	public Long getSelectionId() {
 		return selectionId;
 	}
 
 	/**
 	  * The selection_id.
 	  */
-	public void setSelectionId(long selectionId) {
+	public void setSelectionId(Long selectionId) {
 		this.selectionId = selectionId;
 	}
 

@@ -35,7 +35,7 @@ public class ItemDescription {
 	/**
 	  * The numberOfWinners on a market. Available at BET groupBy.
 	  */
-	private int numberOfWinners;
+	private Integer numberOfWinners;
 
 	/**
 	  * The event type name, translated into the requested locale. Available at EVENT_TYPE groupBy or lower.
@@ -110,14 +110,14 @@ public class ItemDescription {
 	/**
 	  * The numberOfWinners on a market. Available at BET groupBy.
 	  */
-	public int getNumberOfWinners() {
+	public Integer getNumberOfWinners() {
 		return numberOfWinners;
 	}
 
 	/**
 	  * The numberOfWinners on a market. Available at BET groupBy.
 	  */
-	public void setNumberOfWinners(int numberOfWinners) {
+	public void setNumberOfWinners(Integer numberOfWinners) {
 		this.numberOfWinners = numberOfWinners;
 	}
 

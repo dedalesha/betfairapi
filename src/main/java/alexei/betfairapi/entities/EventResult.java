@@ -15,7 +15,7 @@ public class EventResult {
 	/**
 	  * Count of markets associated with this event
 	  */
-	private int marketCount;
+	private Integer marketCount;
 
 	/**
 	  * Event
@@ -34,14 +34,14 @@ public class EventResult {
 	/**
 	  * Count of markets associated with this event
 	  */
-	public int getMarketCount() {
+	public Integer getMarketCount() {
 		return marketCount;
 	}
 
 	/**
 	  * Count of markets associated with this event
 	  */
-	public void setMarketCount(int marketCount) {
+	public void setMarketCount(Integer marketCount) {
 		this.marketCount = marketCount;
 	}
 

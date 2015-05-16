@@ -22,10 +22,10 @@
 		<!-- primitives -->
 	
 		<xsl:when test="$type eq 'string'">String</xsl:when>			
-		<xsl:when test="$type eq 'bool'">boolean</xsl:when>			
+		<xsl:when test="$type eq 'bool'">Boolean</xsl:when>			
 		<xsl:when test="$type eq 'dateTime'">java.util.Date</xsl:when>			
-		<xsl:when test="$type eq 'i32'">int</xsl:when>			
-		<xsl:when test="$type eq 'i64'">long</xsl:when>
+		<xsl:when test="$type eq 'i32'">Integer</xsl:when>			
+		<xsl:when test="$type eq 'i64'">Long</xsl:when>
 		
 		
 		<!-- Lists -->
@@ -104,7 +104,7 @@ public class <xsl:value-of select="@name" /> {
 </xsl:template>
 
 <xsl:template match="getter">
-	public <xsl:value-of select="@type"/> <xsl:value-of select="if (@type eq 'boolean') then ' is' else ' get'" /><xsl:value-of select="udf:firstCharUp(@field-name)"/>() {
+	public <xsl:value-of select="@type"/> <xsl:value-of select="if (@type eq 'Boolean') then ' is' else ' get'" /><xsl:value-of select="udf:firstCharUp(@field-name)"/>() {
 		return <xsl:value-of select="@field-name" />;
 	}
 </xsl:template>

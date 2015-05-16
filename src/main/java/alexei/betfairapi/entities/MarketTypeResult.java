@@ -15,7 +15,7 @@ public class MarketTypeResult {
 	/**
 	  * Count of markets associated with this marketType
 	  */
-	private int marketCount;
+	private Integer marketCount;
 
 	/**
 	  * Market Type
@@ -34,14 +34,14 @@ public class MarketTypeResult {
 	/**
 	  * Count of markets associated with this marketType
 	  */
-	public int getMarketCount() {
+	public Integer getMarketCount() {
 		return marketCount;
 	}
 
 	/**
 	  * Count of markets associated with this marketType
 	  */
-	public void setMarketCount(int marketCount) {
+	public void setMarketCount(Integer marketCount) {
 		this.marketCount = marketCount;
 	}
 

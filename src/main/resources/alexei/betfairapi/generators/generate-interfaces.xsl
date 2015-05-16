@@ -22,10 +22,10 @@
 		<!-- primitives -->
 	
 		<xsl:when test="$type eq 'string'">String</xsl:when>			
-		<xsl:when test="$type eq 'bool'">boolean</xsl:when>			
+		<xsl:when test="$type eq 'bool'">Boolean</xsl:when>			
 		<xsl:when test="$type eq 'dateTime'">Date</xsl:when>			
-		<xsl:when test="$type eq 'i32'">int</xsl:when>			
-		<xsl:when test="$type eq 'i64'">long</xsl:when>
+		<xsl:when test="$type eq 'i32'">Integer</xsl:when>			
+		<xsl:when test="$type eq 'i64'">Long</xsl:when>
 		
 		
 		<!-- Lists -->
