@@ -19,11 +19,12 @@ The plan so far is to:
 - [X] F7: Can auto-generate data types 
 - [X] F8: Can auto-generate betting API interface
 - [X] F9: Proxy the interface with Rest call implementation
-- [ ] F10: Handle API error codes
+- [X] F10: Handle API error codes
 - [X] F11: Use keystore for username, password, api key
 - [X] R2: Add error handling to API interface invocation handler
 - [ ] R3: Refactor Login class to represent a session
 - [X] R4: Do not serialize unset fieds in requests, e.g. {"filter":{"textQuery":null
-- [ ] F12: Add Drools
+- [X] F12: Add Drools
 - [ ] F13: Run a single dRule against a real Betfair entity
 - [ ] R5: Get rid of boilerplate from generators
+- [ ] R6: Split into maven submodules: api, api-generators, drools ...
