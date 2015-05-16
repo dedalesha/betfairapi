@@ -13,6 +13,8 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.StatusType;
+import javax.ws.rs.core.Response.Status.Family;
 
 import org.glassfish.jersey.filter.LoggingFilter;
 
@@ -54,6 +56,10 @@ public class RestInvocationHandler implements InvocationHandler {
 				Entity.entity(requestPayload, MediaType.APPLICATION_JSON)
 			);
 
+		 if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+			 throw new RestException(response.getStatusInfo());
+		 }
+		 
 		 return response.readEntity(new GenericType(method.getGenericReturnType())); 
 		
 	}
