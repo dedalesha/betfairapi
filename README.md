@@ -26,3 +26,4 @@ The plan so far is to:
 - [X] R4: Do not serialize unset fieds in requests, e.g. {"filter":{"textQuery":null
 - [ ] F12: Add Drools
 - [ ] F13: Run a single dRule against a real Betfair entity
+- [ ] R5: Get rid of boilerplate from generators

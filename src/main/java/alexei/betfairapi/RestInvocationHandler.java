@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -22,7 +24,11 @@ import alexei.betfairapi.entities.BetfairAPI;
 
 public class RestInvocationHandler implements InvocationHandler {
 
-	private Client rsClient = ClientBuilder.newBuilder().register(BetfairObjectMapper.class).build();
+	private Client rsClient = 
+			ClientBuilder.newBuilder()
+			.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true))
+			.register(BetfairObjectMapper.class)
+			.build();
 	
 	public RestInvocationHandler() {
 	}
@@ -44,20 +50,25 @@ public class RestInvocationHandler implements InvocationHandler {
 			}
 		}
 		 
-		 Response response = rsClient
-		.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true)) //TODO: add logging filter only if debug is enabled
+		 Invocation invocation = rsClient
 		.target("https://api.betfair.com/exchange/betting/rest/v1.0/")
 		.path(method.getName()+"/")
 		.request(MediaType.APPLICATION_JSON)
 		.header("X-Application", Login.getAppKey())
 		.header("X-Authentication", Login.getSessionId())
 		.header("Content-Type", MediaType.APPLICATION_JSON)
-		.post(
+		.buildPost(
 				Entity.entity(requestPayload, MediaType.APPLICATION_JSON)
 			);
 
+		 Response response = invocation.invoke();
+		 
 		 if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
-			 throw new RestException(response.getStatusInfo());
+			 if (response.getStatusInfo().getFamily() == Family.CLIENT_ERROR) {
+				 APINGClientErrorResponse apingErrorDetail = response.readEntity(APINGClientErrorResponse.class);
+				 throw new RestException(method.getName(), response, apingErrorDetail);				 
+			 }
+			 throw new RestException(method.getName(), response);
 		 }
 		 
 		 return response.readEntity(new GenericType(method.getGenericReturnType())); 
