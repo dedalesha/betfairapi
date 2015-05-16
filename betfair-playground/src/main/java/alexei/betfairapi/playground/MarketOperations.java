@@ -1,10 +1,12 @@
-package alexei.betfairapi;
+package alexei.betfairapi.playground;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import alexei.betfairapi.ApiFactory;
+import alexei.betfairapi.Login;
 import alexei.betfairapi.entities.BetfairAPI;
 import alexei.betfairapi.entities.EventResult;
 import alexei.betfairapi.entities.MarketCatalogue;

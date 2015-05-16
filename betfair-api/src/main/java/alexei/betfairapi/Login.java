@@ -29,7 +29,6 @@ public class Login {
 
 	public static String login() {
 		
-		//TODO: add logging
 		try {
 			KeyStoreAuth auth = KeyStoreAuth.getInstance();
 			applicationKey = auth.getAppkey();
@@ -39,7 +38,7 @@ public class Login {
 			form.param("password", auth.getPassword());
 	
 			Response response = newClient()
-				.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true)) //TODO: add logging filter only if debug is enabled
+				.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true))
 				.target("https://identitysso.betfair.com/api/login")
 				.request(MediaType.APPLICATION_JSON)
 				.header("X-Application", auth.getAppkey())
