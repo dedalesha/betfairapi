@@ -1,10 +1,12 @@
 package alexei.betfairapi;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import alexei.betfairapi.entities.BetfairAPI;
+import alexei.betfairapi.entities.EventResult;
 import alexei.betfairapi.entities.MarketCatalogue;
 import alexei.betfairapi.entities.MarketFilter;
 import alexei.betfairapi.entities.MarketProjection;
@@ -24,7 +26,10 @@ public class MarketOperations {
 		
 		List<MarketCatalogue> listMarketCatalogue = api.listMarketCatalogue(marketFilter, marketProjection, MarketSort.MAXIMUM_TRADED, 20, null);
 		System.out.println(listMarketCatalogue);
-
+		
+		marketFilter.setEventIds(Collections.singleton("1"));
+		List<EventResult> events = api.listEvents(marketFilter, null);
+		System.out.println(events);
 	}
 	
 	public static void main(String[] args) {

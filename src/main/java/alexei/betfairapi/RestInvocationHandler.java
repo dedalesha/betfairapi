@@ -3,18 +3,16 @@ package alexei.betfairapi;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.filter.LoggingFilter;
 
@@ -27,6 +25,7 @@ public class RestInvocationHandler implements InvocationHandler {
 	public RestInvocationHandler() {
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
@@ -43,7 +42,7 @@ public class RestInvocationHandler implements InvocationHandler {
 			}
 		}
 		 
-		 return rsClient
+		 Response response = rsClient
 		.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true)) //TODO: add logging filter only if debug is enabled
 		.target("https://api.betfair.com/exchange/betting/rest/v1.0/")
 		.path(method.getName()+"/")
@@ -51,8 +50,11 @@ public class RestInvocationHandler implements InvocationHandler {
 		.header("X-Application", Login.getAppKey())
 		.header("X-Authentication", Login.getSessionId())
 		.header("Content-Type", MediaType.APPLICATION_JSON)
-		.post(Entity.entity(requestPayload, MediaType.APPLICATION_JSON), method.getReturnType());
+		.post(
+				Entity.entity(requestPayload, MediaType.APPLICATION_JSON)
+			);
 
+		 return response.readEntity(new GenericType(method.getGenericReturnType())); 
 		
 	}
 
