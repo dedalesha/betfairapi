@@ -1,6 +1,7 @@
 package alexei.betfairapi.keystore;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.security.KeyStore;
 import java.security.KeyStore.PasswordProtection;
 import java.security.KeyStore.SecretKeyEntry;
@@ -14,48 +15,40 @@ import javax.crypto.spec.PBEKeySpec;
 
 public class KeyStoreAuth {
 
-	private static final String BETFAIR_KEYSTORE_PASSWORD_PROPERTY = "betfair.keystore.password";
-	private String username, password, appkey;
+	private String storePassword;
 	
-	public String getUsername() {
-		return username;
+	public KeyStoreAuth(String keyStorePassword) {
+		this.storePassword = keyStorePassword;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getAppkey() {
-		return appkey;
-	}
-
-	public static KeyStoreAuth getInstance() throws Exception {
-
-		KeyStore ks = KeyStore.getInstance("JCEKS");
+	
+	public AuthResult authenticate() throws Exception {
 
 		try (FileInputStream fis = new FileInputStream(InitKeyStore.KEYSTORE_FILE)) {
-			
-			//TODO: warn if property doesn't exist
-			char [] keyStorePwd = System.getProperty(BETFAIR_KEYSTORE_PASSWORD_PROPERTY).toCharArray();
-			
-			ks.load(fis, keyStorePwd);
+			KeyStore ks = KeyStore.getInstance("JCEKS");
 	
-			PasswordProtection keyStorePP = new PasswordProtection(keyStorePwd);
-			
-			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBE");
-	
-			KeyStoreAuth result = new KeyStoreAuth();
-			
-			result.username = getKeyValue(InitKeyStore.BETFAIR_USERNAME_KEY, ks, keyStorePP, factory);
-			result.password = getKeyValue(InitKeyStore.BETFAIR_PASSWORD_KEY, ks, keyStorePP, factory);
-			result.appkey = getKeyValue(InitKeyStore.BETFAIR_APPKEY_KEY, ks, keyStorePP, factory);
-			
-			return result;
+				char [] keyStorePwd = storePassword.toCharArray();
+				
+				ks.load(fis, keyStorePwd);
+		
+				PasswordProtection keyStorePP = new PasswordProtection(keyStorePwd);
+				
+				SecretKeyFactory factory = SecretKeyFactory.getInstance("PBE");
+		
+				String username = getKeyValue(InitKeyStore.BETFAIR_USERNAME_KEY, ks, keyStorePP, factory);
+				String password = getKeyValue(InitKeyStore.BETFAIR_PASSWORD_KEY, ks, keyStorePP, factory);
+				String appkey = getKeyValue(InitKeyStore.BETFAIR_APPKEY_KEY, ks, keyStorePP, factory);
+				
+				return new AuthResult(username, password, appkey);
+
+		} catch (FileNotFoundException fnf) {
+			return new AuthResult("Key store "+InitKeyStore.KEYSTORE_FILE+" not found in working directory, run "+InitKeyStore.class.getName()+" to create");
+		} catch (Exception e) {
+			return new AuthResult("Failed to access secret key store: "+e);
 		}
 
 	}
 
-	private static String getKeyValue(String key, KeyStore ks,
+	private String getKeyValue(String key, KeyStore ks,
 			PasswordProtection keyStorePP, SecretKeyFactory factory)
 			throws NoSuchAlgorithmException, UnrecoverableEntryException,
 			KeyStoreException, InvalidKeySpecException {

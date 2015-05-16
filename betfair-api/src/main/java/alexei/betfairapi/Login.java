@@ -11,6 +11,8 @@ import org.glassfish.jersey.filter.LoggingFilter;
 
 import alexei.betfairapi.entities.LoginResult;
 import alexei.betfairapi.entities.LoginStatus;
+import alexei.betfairapi.keystore.AuthResult;
+import alexei.betfairapi.keystore.InitKeyStore;
 import alexei.betfairapi.keystore.KeyStoreAuth;
 import static javax.ws.rs.client.ClientBuilder.*;
 
@@ -18,6 +20,7 @@ public class Login {
 
 	private static String sessionId;
 	private static String applicationKey;
+	private static final String BETFAIR_KEYSTORE_PASSWORD_PROPERTY = "betfair.keystore.password";
 	
 	public static String getSessionId() {
 		return sessionId;
@@ -30,7 +33,17 @@ public class Login {
 	public static String login() {
 		
 		try {
-			KeyStoreAuth auth = KeyStoreAuth.getInstance();
+			
+			String keyStorePasswordStr = System.getProperty(BETFAIR_KEYSTORE_PASSWORD_PROPERTY);
+			if (keyStorePasswordStr == null) {
+				throw new RuntimeException("System property betfair.keystore.password bust be set to the password of keystore that was created with "+InitKeyStore.class.getName());
+			}
+			
+			KeyStoreAuth storeAuth = new KeyStoreAuth(keyStorePasswordStr); 
+			AuthResult auth = storeAuth.authenticate();
+			if (!auth.isSuccessful()) {
+				throw new RuntimeException("Could not load authentication information: "+auth.getErrorMessage());
+			}
 			applicationKey = auth.getAppkey();
 			
 			Form form = new Form();
