@@ -5,8 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import alexei.betfairapi.ApiFactory;
-import alexei.betfairapi.Login;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
+import alexei.betfairapi.BetfairAPIModule;
 import alexei.betfairapi.entities.BetfairAPI;
 import alexei.betfairapi.entities.EventResult;
 import alexei.betfairapi.entities.MarketCatalogue;
@@ -16,11 +18,12 @@ import alexei.betfairapi.entities.MarketSort;
 
 public class MarketOperations {
 	
-	public void listFootballMarkets() {
-
-		ApiFactory f = new ApiFactory();
+	
+	public static void main(String[] args) throws Exception {
 		
-		BetfairAPI api = f.getInstance();
+		Injector injector = Guice.createInjector(new BetfairAPIModule());
+		
+		BetfairAPI api = injector.getInstance(BetfairAPI.class);
 		
 		MarketFilter marketFilter = new MarketFilter();
 		Set<MarketProjection> marketProjection = new HashSet<MarketProjection>();
@@ -34,12 +37,7 @@ public class MarketOperations {
 		List<EventResult> events = api.listEvents(marketFilter, null);
 		System.out.println(events);
 		System.out.println(events.size());
-	}
-	
-	public static void main(String[] args) {
-		Login.login();
-		MarketOperations operations = new MarketOperations();
-		operations.listFootballMarkets();
+		
 	}
 	
 }

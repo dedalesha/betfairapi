@@ -5,32 +5,27 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
+import javax.inject.Inject;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.StatusType;
 import javax.ws.rs.core.Response.Status.Family;
-
-import org.glassfish.jersey.filter.LoggingFilter;
 
 import alexei.betfairapi.entities.BetfairAPI;
 
-public class RestInvocationHandler implements InvocationHandler {
+public class JaxRsInvocationHandler implements InvocationHandler {
 
-	private Client rsClient = 
-			ClientBuilder.newBuilder()
-			.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true))
-			.register(BetfairObjectMapper.class)
-			.build();
+	private Session session;
+	private Client client;
 	
-	public RestInvocationHandler() {
+	@Inject
+	public JaxRsInvocationHandler(Session session, Client jaxRsClient) {
+		this.session = session;
+		this.client = jaxRsClient;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -50,12 +45,12 @@ public class RestInvocationHandler implements InvocationHandler {
 			}
 		}
 		 
-		 Invocation invocation = rsClient
+		 Invocation invocation = client
 		.target("https://api.betfair.com/exchange/betting/rest/v1.0/")
 		.path(method.getName()+"/")
 		.request(MediaType.APPLICATION_JSON)
-		.header("X-Application", Login.getAppKey())
-		.header("X-Authentication", Login.getSessionId())
+		.header("X-Application", session.getAppKey())
+		.header("X-Authentication", session.getSessionToken())
 		.header("Content-Type", MediaType.APPLICATION_JSON)
 		.buildPost(
 				Entity.entity(requestPayload, MediaType.APPLICATION_JSON)

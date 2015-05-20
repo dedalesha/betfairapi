@@ -2,6 +2,8 @@ package alexei.betfairapi;
 
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
@@ -16,27 +18,36 @@ import alexei.betfairapi.keystore.InitKeyStore;
 import alexei.betfairapi.keystore.KeyStoreAuth;
 import static javax.ws.rs.client.ClientBuilder.*;
 
-public class Login {
+public class AutoLogonSession implements Session {
 
-	private static String sessionId;
-	private static String applicationKey;
+	private String sessionToken;
+	private String applicationKey;
+	private Client client;
+	
 	private static final String BETFAIR_KEYSTORE_PASSWORD_PROPERTY = "betfair.keystore.password";
 	
-	public static String getSessionId() {
-		return sessionId;
+	@Inject
+	public AutoLogonSession(Client jaxRsClient) {
+		this.client = jaxRsClient;
+	}
+	
+	public String getSessionToken() {
+		if (sessionToken==null) login();
+		return sessionToken;
 	}
 
-	public static String getAppKey() {
+	public String getAppKey() {
+		if (applicationKey==null) login();
 		return applicationKey;
 	}
 
-	public static String login() {
+	public String login() {
 		
 		try {
 			
 			String keyStorePasswordStr = System.getProperty(BETFAIR_KEYSTORE_PASSWORD_PROPERTY);
 			if (keyStorePasswordStr == null) {
-				throw new RuntimeException("System property betfair.keystore.password bust be set to the password of keystore that was created with "+InitKeyStore.class.getName());
+				throw new RuntimeException("System property "+BETFAIR_KEYSTORE_PASSWORD_PROPERTY+" must be set to the password of keystore that was created with "+InitKeyStore.class.getName());
 			}
 			
 			KeyStoreAuth storeAuth = new KeyStoreAuth(keyStorePasswordStr); 
@@ -50,8 +61,8 @@ public class Login {
 			form.param("username", auth.getUsername());
 			form.param("password", auth.getPassword());
 	
-			Response response = newClient()
-				.register(new LoggingFilter(Logger.getLogger(Login.class.getName()), true))
+			Response response = client
+				.register(new LoggingFilter(Logger.getLogger(AutoLogonSession.class.getName()), true))
 				.target("https://identitysso.betfair.com/api/login")
 				.request(MediaType.APPLICATION_JSON)
 				.header("X-Application", auth.getAppkey())
@@ -62,7 +73,7 @@ public class Login {
 	
 			
 			if (loginResult.getStatus() == LoginStatus.SUCCESS) {
-				sessionId = loginResult.getToken();
+				sessionToken = loginResult.getToken();
 				return loginResult.getToken();
 			} else {
 				throw new RuntimeException("Could not log in: "+loginResult.getError());

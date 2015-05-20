@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 /**
  * Configure Jackson for the specifics of Betfair Rescript JSON requests
  */
-public class BetfairObjectMapper implements ContextResolver<ObjectMapper> {
+public class ObjectMapperResolver implements ContextResolver<ObjectMapper> {
 
 	@Override
 	public ObjectMapper getContext(Class<?> type) {
