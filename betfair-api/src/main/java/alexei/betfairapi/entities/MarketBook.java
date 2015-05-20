@@ -7,6 +7,10 @@ package alexei.betfairapi.entities;
 	  */
 public class MarketBook {
 	
+	public Boolean getInplay() {
+			return inplay;
+	}
+
 	/**
 	  * The unique identifier for the market
 	  */

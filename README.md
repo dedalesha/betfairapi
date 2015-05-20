@@ -3,7 +3,8 @@ BetFair API Playground
 
 The purpose is to investigate Betfair API and to place some bets according to some rules.
 
-Before use, run InitKeyStore to save Betfair authentication information. 
+Before use, run InitKeyStore to save Betfair authentication information. It will ask for <keystore password> <betfair username> <betfair password> <betfair app key>. The information will be encrypted in a file betfairauth.jceks. Other uses of API can then
+be run, given the betfairauth.jceks is in working directory and betfair.keystore.password system property contains the <keystore password> 
 
 The plan so far is to:
 
@@ -25,6 +26,8 @@ The plan so far is to:
 - [X] R3: Refactor Login class to represent a session
 - [X] R4: Do not serialize unset fieds in requests, e.g. {"filter":{"textQuery":null
 - [X] F12: Add Drools
-- [ ] F13: Run a single dRule against a real Betfair entity
+- [X] F13: Run a single dRule against a real Betfair entity
 - [X] R6: Split into maven submodules: api, api-generators, drools ...
 - [ ] R7: Do not log login call, but somehow still reuse the jax-rs client, if possible
+- [ ] R8: Decouple Login logic from the KeyStore authentication
+- [ ] F14: Find an in-play market and trace it till it's complete, log all Betfair responses for future tests

@@ -25,7 +25,7 @@
 
 		<dependency>
 			<groupId>alexei</groupId>
-			<artifactId>betfair-api</artifactId>
+			<artifactId>betfair-rules</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

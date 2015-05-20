@@ -1,8 +1,0 @@
-package alexei.betfairapi
-
-rule "Set a value"
-when
-    $a : DroolsTest( value == null )
-then
-    $a.setValue( "aValue" );
-end

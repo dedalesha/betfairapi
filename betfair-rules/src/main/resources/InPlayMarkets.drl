@@ -1,0 +1,8 @@
+package alexei.betfairapi.entities
+
+rule "Accept an inplay market"
+when
+    $a : MarketBook( inplay == true )
+then
+    System.out.println("Got an inplay market");
+end
