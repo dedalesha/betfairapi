@@ -1,5 +1,6 @@
 package alexei.betfairapi;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -23,6 +24,8 @@ public class AutoLogonSession implements Session {
 	private String sessionToken;
 	private String applicationKey;
 	private Client client;
+	
+	private static final Logger LOG = Logger.getLogger(AutoLogonSession.class.getName());
 	
 	private static final String BETFAIR_KEYSTORE_PASSWORD_PROPERTY = "betfair.keystore.password";
 	
@@ -53,7 +56,9 @@ public class AutoLogonSession implements Session {
 			KeyStoreAuth storeAuth = new KeyStoreAuth(keyStorePasswordStr); 
 			AuthResult auth = storeAuth.authenticate();
 			if (!auth.isSuccessful()) {
-				throw new RuntimeException("Could not load authentication information: "+auth.getErrorMessage());
+				String errorMessage = "Could not load authentication information: "+auth.getErrorMessage();
+				LOG.log(Level.SEVERE, "Log in failed", errorMessage);
+				throw new RuntimeException(errorMessage);
 			}
 			applicationKey = auth.getAppkey();
 			
@@ -61,6 +66,8 @@ public class AutoLogonSession implements Session {
 			form.param("username", auth.getUsername());
 			form.param("password", auth.getPassword());
 	
+			LOG.log(Level.FINE, "Logging in to Betfair");
+			
 			Response response = client
 				.register(new LoggingFilter(Logger.getLogger(AutoLogonSession.class.getName()), true))
 				.target("https://identitysso.betfair.com/api/login")
@@ -74,11 +81,14 @@ public class AutoLogonSession implements Session {
 			
 			if (loginResult.getStatus() == LoginStatus.SUCCESS) {
 				sessionToken = loginResult.getToken();
+				LOG.log(Level.INFO, "Logged in to Betfair");
 				return loginResult.getToken();
 			} else {
+				LOG.log(Level.SEVERE, "Log in failed "+loginResult.getError());
 				throw new RuntimeException("Could not log in: "+loginResult.getError());
 			}
 		} catch (Exception e) {
+			LOG.log(Level.SEVERE, "Log in failed", e);
 			throw new RuntimeException("Could not log in: "+e, e);
 		}
 

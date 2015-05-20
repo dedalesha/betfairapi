@@ -5,6 +5,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
@@ -19,6 +21,8 @@ import alexei.betfairapi.entities.BetfairAPI;
 
 public class JaxRsInvocationHandler implements InvocationHandler {
 
+	private final static Logger LOG = Logger.getLogger(JaxRsInvocationHandler.class.getName());
+	
 	private Session session;
 	private Client client;
 	
@@ -32,6 +36,8 @@ public class JaxRsInvocationHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
+		
+		LOG.log(Level.FINER, "Preparing invocation of {0} method", method.getName());
 
 		Map<String, Object> requestPayload = new HashMap<>();
 		
@@ -65,6 +71,8 @@ public class JaxRsInvocationHandler implements InvocationHandler {
 			 }
 			 throw new RestException(method.getName(), response);
 		 }
+		 
+		 LOG.log(Level.FINER, "Invocation of {0} was successful", method.getName());
 		 
 		 return response.readEntity(new GenericType(method.getGenericReturnType())); 
 		

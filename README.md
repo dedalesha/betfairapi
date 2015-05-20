@@ -12,7 +12,7 @@ The plan so far is to:
 
 - [X] F1: Can log-in
 - [X] F2: Can list markets
-- [ ] F3: Choose and integrate a logging API: log4j 2 or logback
+- [X] F3: Choose and integrate a logging API: log4j 2 or logback
 - [X] F4: Introduce Java entities
 - [X] F5: Introduce dependency injection: Spring or Guice
 - [X] F6: Can auto-generate enumerations
@@ -26,5 +26,5 @@ The plan so far is to:
 - [X] R4: Do not serialize unset fieds in requests, e.g. {"filter":{"textQuery":null
 - [X] F12: Add Drools
 - [ ] F13: Run a single dRule against a real Betfair entity
-- [ ] R5: Get rid of boilerplate from generators
 - [X] R6: Split into maven submodules: api, api-generators, drools ...
+- [ ] R7: Do not log login call, but somehow still reuse the jax-rs client, if possible
