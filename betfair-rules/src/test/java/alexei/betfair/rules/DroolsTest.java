@@ -1,27 +1,33 @@
 package alexei.betfair.rules;
 
 
+import org.junit.Before;
 import org.junit.Test;
-import org.kie.api.KieServices;
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.StatelessKieSession;
+import org.kie.api.runtime.KieSession;
 
-import alexei.betfairapi.entities.MarketBook;
+import alexei.betfair.rule.services.RuleServices;
+import static org.mockito.Mockito.*;
 
 public class DroolsTest {
 
+	KieSession kSession; 
+	RuleServices ruleServices = mock(RuleServices.class);
+
+	@Before
+	public void setupSession() {
+		BetfairRulesSessionFactory sf = new BetfairRulesSessionFactory();
+		sf.setRuleServices(ruleServices);
+		kSession = sf.createSession();
+	}
+	
 	@Test
-	public void droolsIsPresent() {
+	public void respondsToStartCommand() {
 		
-		KieServices kieServices = KieServices.Factory.get();
-		KieContainer kContainer = kieServices.getKieClasspathContainer();
+		kSession.insert(new StartEvent());
 		
-		StatelessKieSession kSession = kContainer.newStatelessKieSession();
-		
-		MarketBook marketBook = new MarketBook();
-		marketBook.setInplay(true);
-		kSession.execute(marketBook);
-		
+		kSession.fireAllRules();
+
+		verify(ruleServices).ruleEngineStarted();
 	}	
 	
 }

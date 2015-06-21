@@ -1,5 +1,14 @@
 package alexei.betfairapi.entities
 
+global alexei.betfair.rule.services.RuleServices services
+
+rule "Startup Rule"
+when
+    $a : alexei.betfair.rules.StartEvent()
+then
+    services.ruleEngineStarted();
+end
+
 rule "Accept an inplay market"
 when
     $a : MarketBook( inplay == true )

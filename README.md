@@ -22,12 +22,11 @@ The plan so far is to:
 - [X] F9: Proxy the interface with Rest call implementation
 - [X] F10: Handle API error codes
 - [X] F11: Use keystore for username, password, api key
-- [X] R2: Add error handling to API interface invocation handler
-- [X] R3: Refactor Login class to represent a session
-- [X] R4: Do not serialize unset fieds in requests, e.g. {"filter":{"textQuery":null
 - [X] F12: Add Drools
 - [X] F13: Run a single dRule against a real Betfair entity
 - [X] R6: Split into maven submodules: api, api-generators, drools ...
 - [ ] R7: Do not log login call, but somehow still reuse the jax-rs client, if possible
 - [ ] R8: Decouple Login logic from the KeyStore authentication
 - [ ] F14: Find an in-play market and trace it till it's complete, log all Betfair responses for future tests
+- [X] F15: Use global services facade in the rules
+- [ ] R9: Rename rules file, decide on package of the rules file: entities or events, refactor session: move out of test, how to set globals 
